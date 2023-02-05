@@ -33,8 +33,10 @@ module.exports = {
     }
   },
   namedAccounts: {
-    deployer: 0,
-    player: 1
+    owner: 0,
+    ram: 1,
+    shyam: 2
+
   },
   mocha: {
     timeout: 80000000 //200 sec

@@ -1,13 +1,12 @@
-const { network, ethers } = require("hardhat");
+const { network } = require("hardhat");
 const { developmentChains, networkConfig } = require("../helper-hardhat-config")
 const { verify } = require("../utills/verify");
-const VRF_SUB_FUND_AMOUNT = ethers.utils.parseEther("2")
 module.exports = async function ({ getNamedAccounts, deployments }) {
     const { deploy, log } = deployments;
-    const { deployer } = await getNamedAccounts();
+    const { owner } = await getNamedAccounts();
     const args = [100000000, 50];
     const token = await deploy("none", {
-        from: deployer,
+        from: owner,
         args,
         log: true,
         waitconfirmations: network.config.blockconfirmations
